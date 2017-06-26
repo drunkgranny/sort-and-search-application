@@ -21,18 +21,15 @@ public class BubbleSort<T> implements Sort<T> {
 
             int j;
             boolean flag = true;   // set flag to true to begin first pass
-            T temp;   //holding variable
 
             while (flag)
             {
                 flag= false;    //set flag to false awaiting a possible swap
                 for( j = 0;  j < randomAccessable.size() - 1;  j++ )
                 {
-                    if (comparator.compare(randomAccessable.get(j), randomAccessable.get(j + 1)) < 0)
+                    if (comparator.compare(randomAccessable.get(j), randomAccessable.get(j + 1)) > 0)
                     {
-                        temp = randomAccessable.get(j);                //swap elements
-                        randomAccessable.set(j, randomAccessable.get(j + 1));
-                        randomAccessable.set((j + 1), temp);
+                        randomAccessable.swap(j, j+1, randomAccessable);
                         flag = true;              //shows a swap occurred
                     }
                 }
