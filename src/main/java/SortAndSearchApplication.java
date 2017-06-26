@@ -1,10 +1,8 @@
-import org.asm_labs.BubbleSort;
-import org.asm_labs.FileCreator;
-import org.asm_labs.RandomAccessable;
-import org.asm_labs.RandomAccessableArray;
+import org.asm_labs.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.Comparator;
 
 /**
@@ -12,24 +10,50 @@ import java.util.Comparator;
  */
 public class SortAndSearchApplication {
     public static void main(String[] args) throws IOException {
-        FileCreator file = new FileCreator(args[0]);
+
+
+//        Comparator<Integer> comparator = new Comparator<Integer>() {
+//            @Override
+//            public int compare(Integer o1, Integer o2) {
+//                return o1.compareTo(o2);
+//
+//            }
+//        };
+
+//        BubbleSort<Integer> bubbleSort = new BubbleSort<Integer>(comparator);
+//        Integer[] a = {1, 0, 7, 4 ,2 ,9};
+//        RandomAccessableArray<Integer> randomAccessableArray = new RandomAccessableArray<Integer>(a);
+//        bubbleSort.sort(randomAccessableArray);
+//        System.out.println("Bubble: ");
+//        for (int i = 0; i < randomAccessableArray.size(); i++) {
+//            System.out.println(randomAccessableArray.get(i));
+//        }
+//        System.out.println("Selection: ");
+//        SelectionSort<Integer> selectionSort = new SelectionSort<Integer>(comparator);
+//        selectionSort.sort(randomAccessableArray);
+//        for (int i = 0; i < randomAccessableArray.size(); i++) {
+//            System.out.println(randomAccessableArray.get(i));
+//        }
+
+        FileCreator file = new FileCreator("E:\\sort-and-search-application\\src\\main\\java\\org\\asm_labs\\first.txt");
         File myFile = file.createFile();
         file.fillTheFile(myFile);
 
-        Comparator<Integer> comparator = new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return o1.compareTo(o2);
+        RandomAccessFile randomAccessFile = new RandomAccessFile("E:\\sort-and-search-application\\src\\main\\java\\org\\asm_labs\\first.txt", "rw");
+        RandomAccessableFile randomAccessableFile = new RandomAccessableFile(randomAccessFile);
 
+        Comparator<String> comparator = new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.compareTo(o2);
             }
         };
 
-        BubbleSort<Integer> bubbleSort = new BubbleSort<Integer>(comparator);
-        Integer[] a = {1, 0, 7, 4 ,2 ,9};
-        RandomAccessableArray<Integer> randomAccessableArray = new RandomAccessableArray<Integer>(a);
-        bubbleSort.sort(randomAccessableArray);
-        for (int i = 0; i < randomAccessableArray.size(); i++) {
-            System.out.println(randomAccessableArray.get(i));
+        BubbleSort<String> bubbleSort = new BubbleSort<String>(comparator);
+        bubbleSort.sort(randomAccessableFile);
+
+        for (int i = 0; i < randomAccessableFile.size(); i++) {
+            System.out.println(randomAccessableFile.get(i));
         }
 
     }
