@@ -48,13 +48,14 @@ public class SortAndSearchApplication {
                 return o1.compareTo(o2);
             }
         };
-
+        long start = System.currentTimeMillis();
         BubbleSort<String> bubbleSort = new BubbleSort<String>(comparator);
         bubbleSort.sort(randomAccessableFile);
-
-        for (int i = 0; i < randomAccessableFile.size(); i++) {
-            System.out.println(randomAccessableFile.get(i));
-        }
+        long elapsedTimes = (System.currentTimeMillis() - start) / 1000; //count in Millis
+        System.out.println(elapsedTimes);
+//        for (int i = 0; i < randomAccessableFile.size(); i++) {
+//            System.out.println(randomAccessableFile.get(i));
+//        }
 
     }
 }

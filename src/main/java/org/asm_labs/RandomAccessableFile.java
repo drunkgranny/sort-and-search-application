@@ -16,13 +16,13 @@ public class RandomAccessableFile implements RandomAccessable<String> {
 
     @Override
     public String get(int index) throws IOException {
-        randomAccessFile.seek(index * (12 + 1)); //TODO 12 + 1
+        randomAccessFile.seek(index * (12 + 1));
         return randomAccessFile.readLine();
     }
 
     @Override
     public int size() throws IOException {
-        return (int)Math.floor(randomAccessFile.length() / 12); //TODO 12
+        return (int)Math.floor(randomAccessFile.length() / (12 + 1));
     }
 
     @Override

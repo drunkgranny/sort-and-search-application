@@ -23,17 +23,17 @@ public class FileCreator {
         return file;
     }
 
-    public File fillTheFile(File file) throws IOException {
+    public void fillTheFile(File file) throws IOException {
         long start = System.currentTimeMillis();
         Writer fw = new BufferedWriter(new FileWriter(file), 2 * 2048);
-        for (long i = 0; i <= 5; i++) {
+        for (long i = 0; i < 1000000; i++) {
             String str = new RandomStringGenerator(12).nextString();
             fw.write(str + "\n");
+            fw.flush();
         }
         fw.close();
-        long elapsedTime = (System.currentTimeMillis() - start) / 60000;
+        long elapsedTime = (System.currentTimeMillis() - start) / 1000; // count in Millis
         System.out.println(elapsedTime);
-        return file;
     }
 
 
