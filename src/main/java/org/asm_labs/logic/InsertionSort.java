@@ -1,4 +1,7 @@
-package org.asm_labs;
+package org.asm_labs.logic;
+
+import org.asm_labs.adapters.interfaces.RandomAccessable;
+import org.asm_labs.logic.interfaces.Sort;
 
 import java.io.IOException;
 import java.util.Comparator;

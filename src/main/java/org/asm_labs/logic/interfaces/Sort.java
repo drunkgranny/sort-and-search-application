@@ -1,4 +1,6 @@
-package org.asm_labs;
+package org.asm_labs.logic.interfaces;
+
+import org.asm_labs.adapters.interfaces.RandomAccessable;
 
 import java.io.IOException;
 

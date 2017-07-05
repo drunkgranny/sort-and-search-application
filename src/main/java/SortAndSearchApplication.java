@@ -1,4 +1,7 @@
-import org.asm_labs.*;
+import org.asm_labs.adapters.RandomAccessableFile;
+import org.asm_labs.files.FileCreator;
+import org.asm_labs.files.InputModifier;
+import org.asm_labs.logic.InsertionSort;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,30 +13,6 @@ import java.util.Comparator;
  */
 public class SortAndSearchApplication {
     public static void main(String[] args) throws IOException {
-
-
-//        Comparator<Integer> comparator = new Comparator<Integer>() {
-//            @Override
-//            public int compare(Integer o1, Integer o2) {
-//                return o1.compareTo(o2);
-//
-//            }
-//        };
-
-//        BubbleSort<Integer> bubbleSort = new BubbleSort<Integer>(comparator);
-//        Integer[] a = {1, 0, 7, 4 ,2 ,9};
-//        RandomAccessableArray<Integer> randomAccessableArray = new RandomAccessableArray<Integer>(a);
-//        bubbleSort.sort(randomAccessableArray);
-//        System.out.println("Bubble: ");
-//        for (int i = 0; i < randomAccessableArray.size(); i++) {
-//            System.out.println(randomAccessableArray.get(i));
-//        }
-//        System.out.println("Selection: ");
-//        SelectionSort<Integer> selectionSort = new SelectionSort<Integer>(comparator);
-//        selectionSort.sort(randomAccessableArray);
-//        for (int i = 0; i < randomAccessableArray.size(); i++) {
-//            System.out.println(randomAccessableArray.get(i));
-//        }
 
         FileCreator file = new FileCreator("E:\\sort-and-search-application\\src\\main\\java\\org\\asm_labs\\first.txt");
         File myFile = file.createFile();
@@ -55,20 +34,24 @@ public class SortAndSearchApplication {
                 return o1.compareTo(o2);
             }
         };
-        long start = System.currentTimeMillis();
-//        BubbleSort<String> bubbleSort = new BubbleSort<String>(comparator);
-//        bubbleSort.sort(randomAccessableFile);
+
+//        long start = System.currentTimeMillis();
+//        InsertionSort<String> insertionSort = new InsertionSort<>(comparator);
+//        insertionSort.sort(randomAccessableFile);
+//        InputModifier inputModifier = new InputModifier();
+//        long elapsedTimes = (System.currentTimeMillis() - start) / 1000; //count in Millis
+//
+//        System.out.println("File after sorting: ");
+//        System.out.println("--------------------");
+//        for (int i = 0; i < randomAccessableFile.size(); i++) {
+//            System.out.println(randomAccessableFile.get(i));
+//        }
+//
+//        System.out.println("Time for sorting: " + elapsedTimes);
+
         InsertionSort<String> insertionSort = new InsertionSort<>(comparator);
-        insertionSort.sort(randomAccessableFile);
-        long elapsedTimes = (System.currentTimeMillis() - start) / 1000; //count in Millis
-
-        System.out.println("File after sorting: ");
-        System.out.println("--------------------");
-        for (int i = 0; i < randomAccessableFile.size(); i++) {
-            System.out.println(randomAccessableFile.get(i));
-        }
-
-        System.out.println("Time for sorting: " + elapsedTimes);
-
+        InputModifier<String> inputModifier = new InputModifier<>();
+        inputModifier.setSort(insertionSort);
+        inputModifier.modify(randomAccessableFile);
     }
 }

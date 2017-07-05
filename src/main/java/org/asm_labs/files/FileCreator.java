@@ -1,4 +1,6 @@
-package org.asm_labs;
+package org.asm_labs.files;
+
+import org.asm_labs.RandomStringGenerator;
 
 import java.io.*;
 

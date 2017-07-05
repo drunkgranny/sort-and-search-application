@@ -1,8 +1,9 @@
-package org.asm_labs;
+package org.asm_labs.adapters.interfaces;
 
 import java.io.IOException;
 
-/** Итерфейс произвольного доступа к структуре данных любого типа
+/** Итерфейс произвольного доступа к структуре данных любого типа.
+ * Реализация паттерна Адаптер.
  * @author drunkgranny
  *         Date: 23.06.17.
  */

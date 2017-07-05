@@ -1,4 +1,7 @@
-package org.asm_labs;
+package org.asm_labs.logic;
+
+import org.asm_labs.adapters.interfaces.RandomAccessable;
+import org.asm_labs.logic.interfaces.Sort;
 
 import java.io.*;
 import java.util.Comparator;
@@ -9,7 +12,7 @@ import java.util.Comparator;
  * @author drunkgranny
  *         Date: 23.06.17.
  * @version 1.0
- * @see Sort<T>#sort(RandomAccessable<T> randomAccessable)
+ * @see Sort <T>#sort(RandomAccessable<T> randomAccessable)
  */
 public class BubbleSort<T> implements Sort<T> {
 
