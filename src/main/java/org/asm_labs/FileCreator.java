@@ -44,7 +44,7 @@ public class FileCreator {
     public void fillTheFile(File file) throws IOException {
         long start = System.currentTimeMillis();
         Writer fw = new BufferedWriter(new FileWriter(file), 2 * 2048);
-        for (long i = 0; i < 1000000; i++) {
+        for (long i = 0; i < 500; i++) {
             String str = new RandomStringGenerator(12).nextString();
             fw.write(str + "\n");
             fw.flush();

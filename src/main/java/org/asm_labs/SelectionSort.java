@@ -25,7 +25,7 @@ public class SelectionSort<T> implements Sort<T> {
                 if (comparator.compare(randomAccessable.get(j), randomAccessable.get(min)) < 0) {
                     min = j;
                 }
-                randomAccessable.swap(min, i, randomAccessable);
+                randomAccessable.swap(min, i);
             }
         }
     }

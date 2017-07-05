@@ -42,6 +42,13 @@ public class SortAndSearchApplication {
         RandomAccessFile randomAccessFile = new RandomAccessFile("E:\\sort-and-search-application\\src\\main\\java\\org\\asm_labs\\first.txt", "rw");
         RandomAccessableFile randomAccessableFile = new RandomAccessableFile(randomAccessFile);
 
+        System.out.println("File before sorting: ");
+        System.out.println("---------------------");
+
+        for (int i = 0; i < randomAccessableFile.size(); i++) {
+            System.out.println(randomAccessableFile.get(i));
+        }
+
         Comparator<String> comparator = new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
@@ -49,13 +56,19 @@ public class SortAndSearchApplication {
             }
         };
         long start = System.currentTimeMillis();
-        BubbleSort<String> bubbleSort = new BubbleSort<String>(comparator);
-        bubbleSort.sort(randomAccessableFile);
+//        BubbleSort<String> bubbleSort = new BubbleSort<String>(comparator);
+//        bubbleSort.sort(randomAccessableFile);
+        InsertionSort<String> insertionSort = new InsertionSort<>(comparator);
+        insertionSort.sort(randomAccessableFile);
         long elapsedTimes = (System.currentTimeMillis() - start) / 1000; //count in Millis
-        System.out.println(elapsedTimes);
-//        for (int i = 0; i < randomAccessableFile.size(); i++) {
-//            System.out.println(randomAccessableFile.get(i));
-//        }
+
+        System.out.println("File after sorting: ");
+        System.out.println("--------------------");
+        for (int i = 0; i < randomAccessableFile.size(); i++) {
+            System.out.println(randomAccessableFile.get(i));
+        }
+
+        System.out.println("Time for sorting: " + elapsedTimes);
 
     }
 }

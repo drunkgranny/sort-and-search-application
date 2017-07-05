@@ -36,13 +36,12 @@ public interface RandomAccessable<T> {
      * Метод обмена элементами
      * @param index1 первый элемент
      * @param index2 второй элемент
-     * @param randomAccessable структура данных, содержащая элементы
      * @throws IOException
      */
-    default void swap(int index1, int index2, RandomAccessable<T> randomAccessable) throws IOException {
+    default void swap(int index1, int index2) throws IOException {
         T temp;
-        temp = randomAccessable.get(index1);
-        randomAccessable.set(index1, randomAccessable.get(index2));
-        randomAccessable.set(index2, temp);
+        temp = get(index1);
+        set(index1, get(index2));
+        set(index2, temp);
     }
 }

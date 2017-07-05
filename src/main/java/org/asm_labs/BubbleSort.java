@@ -39,7 +39,7 @@ public class BubbleSort<T> implements Sort<T> {
                 {
                     if (comparator.compare(randomAccessable.get(j), randomAccessable.get(j + 1)) > 0)
                     {
-                        randomAccessable.swap(j, j+1, randomAccessable);
+                        randomAccessable.swap(j, j+1);
                         flag = true;              //shows a swap occurred
                     }
                 }
